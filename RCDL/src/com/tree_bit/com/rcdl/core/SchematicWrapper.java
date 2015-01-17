@@ -44,6 +44,9 @@ public class SchematicWrapper {
 		inputStream.close();
 	}
 
+	/**
+	 * Creates a new wrapper for an empty schematic file.
+	 */
 	public SchematicWrapper() {
 		root = new CompoundTag("Schematic", new HashMap<>());
 	}
@@ -159,11 +162,73 @@ public class SchematicWrapper {
 		root = new CompoundTag(root.getName(), addTag(t, root));
 	}
 
+	/**
+	 * Adds a tag for the height of the schematic to the root compound tag.
+	 *
+	 * @param value
+	 *            <b>short</b> height
+	 */
 	public void writeHeight(short value) {
 		ShortTag t = new ShortTag(ESchematicFields.HEIGHT.getKey(), value);
 		addTagToRoot(t);
 	}
 
+	/**
+	 * Adds a tag for the width of the schematic to the root compound tag.
+	 *
+	 * @param value
+	 *            <b>short</b> width
+	 */
+	public void writeWidth(short value) {
+		ShortTag t = new ShortTag(ESchematicFields.WIDTH.getKey(), value);
+		addTagToRoot(t);
+	}
+
+	/**
+	 * Adds a tag for the length of the schematic to the root compound tag.
+	 *
+	 * @param value
+	 *            <b>short</b> length
+	 */
+	public void writeLength(short value) {
+		ShortTag t = new ShortTag(ESchematicFields.LENGTH.getKey(), value);
+		addTagToRoot(t);
+	}
+
+	/**
+	 * Adds a tag for the blocks of the schematic to the root compound tag.
+	 *
+	 * @param value
+	 *            <b>byte[]</b> blocks
+	 */
+	public void writeBlocks(byte[] value) {
+		ByteArrayTag t = new ByteArrayTag(ESchematicFields.BLOCKS.getKey(), value);
+		addTagToRoot(t);
+	}
+
+	/**
+	 * Adds a tag for the data values (for blocks) of the schematic to the root compound tag.
+	 *
+	 * @param value
+	 *            <b>byte[]</b> data values
+	 */
+	public void writeData(byte[] value) {
+		ByteArrayTag t = new ByteArrayTag(ESchematicFields.DATA.getKey(), value);
+		addTagToRoot(t);
+	}
+
+	/**
+	 * Writes the current root compound tag (and value tags) to the given file.
+	 *
+	 * <p>
+	 * If the file doesn't exist it will be created.
+	 * </p>
+	 *
+	 * @param path
+	 *            <b>String</b> path to file
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void saveChangesToFile(String path) throws FileNotFoundException, IOException {
 		File f = new File(path);
 
@@ -175,12 +240,7 @@ public class SchematicWrapper {
 
 		NBTOutputStream out = new NBTOutputStream(new FileOutputStream(f));
 		out.writeTag(root);
-		// for (Tag t : root.getValue().values())
-		// {
-		// out.writeTag(t);
-		// }
 		out.close();
-
 	}
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
@@ -206,11 +266,11 @@ public class SchematicWrapper {
 			System.out.println("");
 		}
 
-		SchematicWrapper writer = new SchematicWrapper();
+		SchematicWrapper writer = new SchematicWrapper("testfiles/treeone.schematic");
 		writer.writeHeight((short) 12);
-		writer.saveChangesToFile("testfiles/test.schematic");
+		writer.saveChangesToFile("testfiles/treeWrite.schematic");
 
-		SchematicWrapper wrapper2 = new SchematicWrapper("testfiles/test.schematic");
+		SchematicWrapper wrapper2 = new SchematicWrapper("testfiles/treeWrite.schematic");
 		System.out.println(wrapper2.root);
 	}
 }
