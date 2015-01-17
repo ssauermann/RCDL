@@ -40,4 +40,14 @@ public class Hex extends Datatype {
 		this(kind, (short) ((("" + value).toUpperCase().charAt(0)) - 65));
 	}
 
+	/**
+	 * Returns the value of this datatype.
+	 * 
+	 * @return <b>Short</b> value
+	 */
+	@Override
+	 public Short getValue() {
+		 return value;
+	 }
+
 }

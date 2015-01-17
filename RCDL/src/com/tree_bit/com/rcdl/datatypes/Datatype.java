@@ -40,4 +40,11 @@ public abstract class Datatype {
 		return kind;
 	}
 
+	/**
+	 * Returns the value of this datatype.
+	 *
+	 * @return <b>Object</b> value
+	 */
+	public abstract Object getValue();
+
 }

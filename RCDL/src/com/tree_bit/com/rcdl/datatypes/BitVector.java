@@ -47,4 +47,14 @@ public class BitVector extends Datatype {
 			this.values = values;
 		}
 	}
+
+	/**
+	 * Returns the value of this datatype.
+	 *
+	 * @return <b>boolean[]</b> value
+	 */
+	@Override
+	public boolean[] getValue() {
+		return values;
+	}
 }

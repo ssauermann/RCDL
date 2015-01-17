@@ -25,4 +25,14 @@ public class Bit extends Datatype {
 		this.value = value;
 	}
 
+	/**
+	 * Returns the value of this datatype.
+	 *
+	 * @return <b>Boolean</b> value
+	 */
+	@Override
+	public Boolean getValue() {
+		return value;
+	}
+
 }
