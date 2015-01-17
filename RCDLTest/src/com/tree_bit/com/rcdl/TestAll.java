@@ -14,7 +14,8 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ com.tree_bit.com.rcdl.blocks.TestAll.class,
-		com.tree_bit.com.rcdl.core.TestAll.class, })
+		com.tree_bit.com.rcdl.core.TestAll.class,
+		com.tree_bit.com.rcdl.datatypes.TestAll.class,})
 public class TestAll {
 
 	/**
