@@ -15,6 +15,7 @@ public class GraphVertex<T> {
 	public GraphVertex(T data) {
 		in = new ArrayList<GraphEdge<?>>();
 		out = new ArrayList<GraphEdge<?>>();
+		this.data = data;
 	}
 
 	public void addEdge(GraphEdge<?> e, Direction direction) {
