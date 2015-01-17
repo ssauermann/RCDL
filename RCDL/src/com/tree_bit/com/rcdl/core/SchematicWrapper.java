@@ -33,6 +33,7 @@ public class SchematicWrapper {
 	 * @throws IOException
 	 */
 	public SchematicWrapper(String path) throws FileNotFoundException, IOException {
+		if (path == null) throw new IllegalArgumentException("Path is NULL");
 		NBTInputStream inputStream = new NBTInputStream(new FileInputStream(path));
 		root = (CompoundTag) inputStream.readTag();
 		inputStream.close();
