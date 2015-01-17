@@ -1,4 +1,4 @@
-package com.tree_bit.com.rcdl;
+package com.tree_bit.com.rcdl.datatypes;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.RunWith;
@@ -15,8 +15,9 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	com.tree_bit.com.rcdl.core.TestAll.class,
-	com.tree_bit.com.rcdl.datatypes.TestAll.class,
+	HexTest.class,
+	BitTest.class,
+	BitVectorTest.class,
 })
 public class TestAll {
 

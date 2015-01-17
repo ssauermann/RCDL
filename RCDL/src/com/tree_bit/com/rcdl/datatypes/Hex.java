@@ -22,6 +22,16 @@ public class Hex extends Datatype {
 	 */
 	public Hex(EKind kind, short value) {
 		super(kind);
+		setValue(value);
+	}
+
+	/**
+	 * Sets the value of this data type.
+	 *
+	 * @param value
+	 *            <b>short</b> value between 0 and 15
+	 */
+	private void setValue(short value) {
 		if ((value < 0) || (value > 15))
 			throw new IllegalArgumentException("Value has to be between 0 and 15");
 		this.value = value;
@@ -37,17 +47,24 @@ public class Hex extends Datatype {
 	 *            insensitive)
 	 */
 	public Hex(EKind kind, char value) {
-		this(kind, (short) ((("" + value).toUpperCase().charAt(0)) - 65));
+		super(kind);
+		if ((value >= '0') && (value <= '9'))
+		{
+			setValue((short) (value - '0'));
+		} else
+		{
+			setValue((short) (((("" + value).toUpperCase().charAt(0)) - 'A') + 10));
+		}
 	}
 
 	/**
 	 * Returns the value of this datatype.
-	 * 
+	 *
 	 * @return <b>Short</b> value
 	 */
 	@Override
-	 public Short getValue() {
-		 return value;
-	 }
+	public Short getValue() {
+		return value;
+	}
 
 }
