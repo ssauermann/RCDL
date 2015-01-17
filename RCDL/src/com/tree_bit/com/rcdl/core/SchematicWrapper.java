@@ -236,7 +236,11 @@ public class SchematicWrapper {
 
 		if (!f.exists())
 		{
-			f.getParentFile().mkdirs();
+			if (f.getParentFile() != null)
+			{
+				f.getParentFile().mkdirs();
+			}
+
 			f.createNewFile();
 		}
 
