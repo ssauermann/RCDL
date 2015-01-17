@@ -48,7 +48,7 @@ public class SchematicWrapper {
 	 * Creates a new wrapper for an empty schematic file.
 	 */
 	public SchematicWrapper() {
-		root = new CompoundTag("Schematic", new HashMap<>());
+		root = new CompoundTag("Schematic", new HashMap<String, Tag>());
 	}
 
 	/**
