@@ -1,12 +1,17 @@
 package com.tree_bit.com.rcdl.core;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.jnbt.ByteArrayTag;
 import org.jnbt.CompoundTag;
 import org.jnbt.NBTInputStream;
+import org.jnbt.NBTOutputStream;
 import org.jnbt.ShortTag;
 import org.jnbt.Tag;
 
@@ -22,7 +27,7 @@ public class SchematicWrapper {
 	/**
 	 * Root Tag
 	 */
-	private final CompoundTag root;
+	private CompoundTag root;
 
 	/**
 	 * Creates a new wrapper for a schematic file.
@@ -37,6 +42,10 @@ public class SchematicWrapper {
 		NBTInputStream inputStream = new NBTInputStream(new FileInputStream(path));
 		root = (CompoundTag) inputStream.readTag();
 		inputStream.close();
+	}
+
+	public SchematicWrapper() {
+		root = new CompoundTag("Schematic", new HashMap<>());
 	}
 
 	/**
@@ -114,6 +123,66 @@ public class SchematicWrapper {
 		return parentTag.getValue().get(key);
 	}
 
+	/**
+	 * Copy the values of a compound tag to a new map and add a new tag. An existing tag with the
+	 * same name is replaced.
+	 *
+	 * @param t
+	 *            <b>Tag</b> new tag
+	 * @param parentTag
+	 *            <b>CompoundTag</b> parent tag
+	 * @return <b>Map&lt;String, Tag&gt;</b> map with the old values and the new one
+	 */
+	private static Map<String, Tag> addTag(Tag t, CompoundTag parentTag) {
+		Map<String, Tag> map = new HashMap<>();
+
+		// Copy old Map
+		for (Tag old : parentTag.getValue().values())
+		{
+			map.put(old.getName(), old);
+		}
+
+		// Add t to map (replace possibly existing old value)
+		map.put(t.getName(), t);
+
+		return map;
+	}
+
+	/**
+	 * Adds a tag to the root compound tag values. Replaces possibly existing value with same
+	 * name/key.
+	 *
+	 * @param t
+	 *            <b>Tag</b> tag
+	 */
+	private void addTagToRoot(Tag t) {
+		root = new CompoundTag(root.getName(), addTag(t, root));
+	}
+
+	public void writeHeight(short value) {
+		ShortTag t = new ShortTag(ESchematicFields.HEIGHT.getKey(), value);
+		addTagToRoot(t);
+	}
+
+	public void saveChangesToFile(String path) throws FileNotFoundException, IOException {
+		File f = new File(path);
+
+		if (!f.exists())
+		{
+			f.getParentFile().mkdirs();
+			f.createNewFile();
+		}
+
+		NBTOutputStream out = new NBTOutputStream(new FileOutputStream(f));
+		out.writeTag(root);
+		// for (Tag t : root.getValue().values())
+		// {
+		// out.writeTag(t);
+		// }
+		out.close();
+
+	}
+
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
 		SchematicWrapper wrapper = new SchematicWrapper("testfiles/treeone.schematic");
@@ -136,5 +205,12 @@ public class SchematicWrapper {
 			}
 			System.out.println("");
 		}
+
+		SchematicWrapper writer = new SchematicWrapper();
+		writer.writeHeight((short) 12);
+		writer.saveChangesToFile("testfiles/test.schematic");
+
+		SchematicWrapper wrapper2 = new SchematicWrapper("testfiles/test.schematic");
+		System.out.println(wrapper2.root);
 	}
 }
