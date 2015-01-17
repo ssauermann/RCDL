@@ -243,34 +243,8 @@ public class SchematicWrapper {
 		out.close();
 	}
 
-	public static void main(String[] args) throws FileNotFoundException, IOException {
-
-		SchematicWrapper wrapper = new SchematicWrapper("testfiles/treeone.schematic");
-
-		// Minecraft default: YZX
-		System.out.println("Size (YZX): " + wrapper.readHeight() + "x" + wrapper.readLength() + "x"
-				+ wrapper.readWidth());
-
-		// Print one Block Layer (Width * Length) (Layer 10)
-		byte[] blocks = wrapper.readBlocks();
-
-		int y = 10;
-
-		for (int x = 0; x < wrapper.readWidth(); x++)
-		{
-			for (int z = 0; z < wrapper.readLength(); z++)
-			{
-				int value = blocks[(((y * wrapper.readLength()) + z) * wrapper.readWidth()) + x];
-				System.out.print(((value < 10) ? ("0" + value) : value) + "|");
-			}
-			System.out.println("");
-		}
-
-		SchematicWrapper writer = new SchematicWrapper("testfiles/treeone.schematic");
-		writer.writeHeight((short) 12);
-		writer.saveChangesToFile("testfiles/treeWrite.schematic");
-
-		SchematicWrapper wrapper2 = new SchematicWrapper("testfiles/treeWrite.schematic");
-		System.out.println(wrapper2.root);
+	@Override
+	public String toString() {
+		return root.toString();
 	}
 }
