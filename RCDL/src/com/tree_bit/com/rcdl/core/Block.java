@@ -1,9 +1,9 @@
-package placeholder;
+package com.tree_bit.com.rcdl.core;
 
 /**
  * A Block means some kind of Object which is included in Minecraft and more
  * importantly has some kind of use for Redstone circuts
- * 
+ *
  * @author Alexander
  *
  */
@@ -21,14 +21,14 @@ public enum Block
 	private final int mcID;
 	/**
 	 * Sometimes a Block has an additional parameter which defines e.g. its
-	 * color or its components
+	 * color or its components, damage status etc.
 	 */
-	private final int version;
+	private final int blockState;
 
-	Block(int mcID, int version)
+	Block(int mcID, int blockState)
 	{
 		this.mcID = mcID;
-		this.version = version;
+		this.blockState = blockState;
 	}
 
 	public int getMcID()
@@ -36,9 +36,9 @@ public enum Block
 		return mcID;
 	}
 
-	public int getVersion()
+	public int getblockState()
 	{
-		return version;
+		return blockState;
 	}
 
 }
