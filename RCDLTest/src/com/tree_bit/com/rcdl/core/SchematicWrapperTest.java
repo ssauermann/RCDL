@@ -28,7 +28,7 @@ public class SchematicWrapperTest {
 	 */
 	@Test
 	public void testSchematicWrapper_1() throws Exception {
-		String path = "../RCDL/testfiles/big.nbt";
+		String path = "testfiles/big.nbt";
 
 		SchematicWrapper result = new SchematicWrapper(path);
 		assertNotNull(result);
@@ -43,7 +43,7 @@ public class SchematicWrapperTest {
 	 */
 	@Test
 	public void testSchematicWrapper_2() throws Exception {
-		String path = "../RCDL/testfiles/treeone.schematic";
+		String path = "testfiles/treeone.schematic";
 
 		SchematicWrapper result = new SchematicWrapper(path);
 		assertNotNull(result);
@@ -183,7 +183,7 @@ public class SchematicWrapperTest {
 	@Test
 	public void testSaveChangesToFile_1() throws Exception {
 		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper();
-		String path = "../RCDL/testfiles/treeWrite.schematics";
+		String path = "testfiles/treeWrite.schematic";
 
 		fixture.saveChangesToFile(path);
 	}

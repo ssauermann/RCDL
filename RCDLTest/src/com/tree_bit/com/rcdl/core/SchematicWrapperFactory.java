@@ -23,8 +23,8 @@ public class SchematicWrapperFactory {
 	 * @generatedBy CodePro at 17.01.15 15:26
 	 */
 	public static SchematicWrapper createSchematicWrapper() throws java.io.FileNotFoundException,
-	java.io.IOException {
-		return new SchematicWrapper("../RCDL/testfiles/treeone.schematic");
+			java.io.IOException {
+		return new SchematicWrapper("testfiles/treeone.schematic");
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class SchematicWrapperFactory {
 	 * @generatedBy CodePro at 17.01.15 15:26
 	 */
 	public static SchematicWrapper createSchematicWrapper2() throws java.io.FileNotFoundException,
-	java.io.IOException {
-		return new SchematicWrapper("../RCDL/testfiles/big.nbt");
+			java.io.IOException {
+		return new SchematicWrapper("testfiles/big.nbt");
 	}
 }
