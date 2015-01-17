@@ -56,4 +56,24 @@ public class RedStoneTorchFactory {
 		return new RedStoneTorch(RedStoneTorch.TorchType.RedstoneTorchOn,
 				RedStoneTorch.TorchDataValues.FacingNorth);
 	}
+
+
+	/**
+	 * Create an instance of the class <code>{@link RedStoneTorch}</code>.
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:24
+	 */
+	public static RedStoneTorch createRedStoneTorch5() {
+		return new RedStoneTorch(RedStoneTorch.TorchType.RedstoneTorchOff, RedStoneTorch.TorchDataValues.FacingEast);
+	}
+
+
+	/**
+	 * Create an instance of the class <code>{@link RedStoneTorch}</code>.
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:24
+	 */
+	public static RedStoneTorch createRedStoneTorch6() {
+		return new RedStoneTorch(RedStoneTorch.TorchType.RedstoneTorchOn, RedStoneTorch.TorchDataValues.FacingNorth);
+	}
 }
