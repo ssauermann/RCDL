@@ -5,7 +5,7 @@ package com.tree_bit.com.rcdl.core;
  *
  * @author Sascha Sauermann
  */
-public class Tuple3 {
+public class Tuple3 implements Comparable<Tuple3> {
 	/**
 	 * x coordinate
 	 */
@@ -126,5 +126,13 @@ public class Tuple3 {
 		if (y != other.y) return false;
 		if (z != other.z) return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Tuple3 o) {
+		// Length of a vector
+		int valThis = ((getX() * getX()) + (getY() * getY()) + (getZ() * getZ()));
+		int valOther = ((o.getX() * o.getX()) + (o.getY() * o.getY()) + (o.getZ() * o.getZ()));
+		return valThis - valOther;
 	}
 }
