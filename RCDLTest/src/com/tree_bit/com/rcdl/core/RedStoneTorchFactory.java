@@ -23,8 +23,8 @@ public class RedStoneTorchFactory {
 	 * @generatedBy CodePro at 17.01.15 15:38
 	 */
 	public static RedStoneTorch createRedStoneTorch() {
-		return new RedStoneTorch(RedStoneTorch.TorchDataValues.FacingEast,
-				RedStoneTorch.TorchType.RedstoneTorchOff);
+		return new RedStoneTorch(RedStoneTorch.TorchType.RedstoneTorchOff,
+				RedStoneTorch.TorchDataValues.FacingEast);
 	}
 
 	/**
@@ -33,7 +33,27 @@ public class RedStoneTorchFactory {
 	 * @generatedBy CodePro at 17.01.15 15:38
 	 */
 	public static RedStoneTorch createRedStoneTorch2() {
-		return new RedStoneTorch(RedStoneTorch.TorchDataValues.FacingNorth,
-				RedStoneTorch.TorchType.RedstoneTorchOn);
+		return new RedStoneTorch(RedStoneTorch.TorchType.RedstoneTorchOn,
+				RedStoneTorch.TorchDataValues.FacingNorth);
+	}
+
+	/**
+	 * Create an instance of the class <code>{@link RedStoneTorch}</code>.
+	 *
+	 * @generatedBy CodePro at 17.01.15 16:14
+	 */
+	public static RedStoneTorch createRedStoneTorch3() {
+		return new RedStoneTorch(RedStoneTorch.TorchType.RedstoneTorchOff,
+				RedStoneTorch.TorchDataValues.FacingEast);
+	}
+
+	/**
+	 * Create an instance of the class <code>{@link RedStoneTorch}</code>.
+	 *
+	 * @generatedBy CodePro at 17.01.15 16:14
+	 */
+	public static RedStoneTorch createRedStoneTorch4() {
+		return new RedStoneTorch(RedStoneTorch.TorchType.RedstoneTorchOn,
+				RedStoneTorch.TorchDataValues.FacingNorth);
 	}
 }

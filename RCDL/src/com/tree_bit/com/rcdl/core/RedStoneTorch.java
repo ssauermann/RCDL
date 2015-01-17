@@ -2,24 +2,15 @@ package com.tree_bit.com.rcdl.core;
 
 /**
  * This Class holds all Information about a Redstone Torch
- * 
+ *
  * @author Alexander
  *
  */
-public class RedStoneTorch {
+public class RedStoneTorch extends Blocks {
 
-	/**
-	 * The Datavalues of a torch describe its Orientation
-	 */
-	private TorchDataValues torchdatavalues;
-	/**
-	 * There are different Minecraft IDs for torches ON/OFF
-	 */
-	private TorchType torchtype;
+	public RedStoneTorch(TorchType torchtype, TorchDataValues torchdatavalues) {
+		super(torchtype.getMcID(), torchdatavalues.getDataValue());
 
-	public RedStoneTorch(TorchDataValues torchdatavalues, TorchType torchtype) {
-		this.torchdatavalues = torchdatavalues;
-		this.torchtype = torchtype;
 	}
 
 	public enum TorchType {
@@ -48,24 +39,6 @@ public class RedStoneTorch {
 		private int getDataValue() {
 			return value;
 		}
-	}
-
-	/**
-	 * Retrieves Information about the Orientation of the Torch
-	 * 
-	 * @return <b>Integer</b> The Data Value of this Object
-	 */
-	public int getTorchdatavalues() {
-		return torchdatavalues.getDataValue();
-	}
-
-	/**
-	 * Retrieves the Minecraft ID of the Torch
-	 * 
-	 * @return <b>Integer</b>
-	 */
-	public int getTorchtype() {
-		return torchtype.getMcID();
 	}
 
 }
