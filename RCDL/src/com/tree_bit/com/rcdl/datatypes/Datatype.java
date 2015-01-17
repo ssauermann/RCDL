@@ -27,7 +27,7 @@ public abstract class Datatype {
 	 * @param kind
 	 *            <b>EKind</b> Kind of data type
 	 */
-	public Datatype(EKind kind) {
+	protected Datatype(EKind kind) {
 		this.kind = kind;
 	}
 
