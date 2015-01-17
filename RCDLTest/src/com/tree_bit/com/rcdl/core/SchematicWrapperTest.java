@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-
 import org.jnbt.ShortTag;
 import org.jnbt.Tag;
 import org.junit.After;
@@ -73,7 +71,7 @@ public class SchematicWrapperTest {
 	 *
 	 * @generatedBy CodePro at 17.01.15 15:29
 	 */
-	@Test(expected = IOException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testSchematicWrapper_4() throws Exception {
 		String path = "";
 
@@ -180,6 +178,113 @@ public class SchematicWrapperTest {
 		short result = fixture.readWidth();
 
 		assertEquals((short) 8, result);
+	}
+
+	@Test
+	public void testSaveChangesToFile_1() throws Exception {
+		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper();
+		String path = "../RCDL/testfiles/treeWrite.schematics";
+
+		fixture.saveChangesToFile(path);
+	}
+
+	/**
+	 * Run the void saveChangesToFile(String) method test.
+	 *
+	 * @throws Exception
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:22
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testSaveChangesToFile_4() throws Exception {
+		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper2();
+		String path = "";
+
+		fixture.saveChangesToFile(path);
+	}
+
+	/**
+	 * Run the void writeBlocks(byte[]) method test.
+	 *
+	 * @throws Exception
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:22
+	 */
+	@Test
+	public void testWriteBlocks_1() throws Exception {
+		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper();
+		byte[] value = new byte[] {};
+
+		fixture.writeBlocks(value);
+		assertEquals(value, fixture.readBlocks());
+	}
+
+	/**
+	 * Run the void writeData(byte[]) method test.
+	 *
+	 * @throws Exception
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:22
+	 */
+	@Test
+	public void testWriteData_1() throws Exception {
+		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper();
+		byte[] value = new byte[] { 1, 2, 3, 4 };
+
+		fixture.writeData(value);
+
+		assertEquals(value, fixture.readData());
+	}
+
+	/**
+	 * Run the void writeHeight(short) method test.
+	 *
+	 * @throws Exception
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:22
+	 */
+	@Test
+	public void testWriteHeight_1() throws Exception {
+		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper();
+		short value = (short) 1;
+
+		fixture.writeHeight(value);
+
+		assertEquals(value, fixture.readHeight());
+	}
+
+	/**
+	 * Run the void writeLength(short) method test.
+	 *
+	 * @throws Exception
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:22
+	 */
+	@Test
+	public void testWriteLength_1() throws Exception {
+		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper();
+		short value = (short) 1;
+
+		fixture.writeLength(value);
+
+		assertEquals(value, fixture.readLength());
+	}
+
+	/**
+	 * Run the void writeWidth(short) method test.
+	 *
+	 * @throws Exception
+	 *
+	 * @generatedBy CodePro at 17.01.15 17:22
+	 */
+	@Test
+	public void testWriteWidth_1() throws Exception {
+		SchematicWrapper fixture = SchematicWrapperFactory.createSchematicWrapper2();
+		short value = (short) 1;
+
+		fixture.writeWidth(value);
+
+		assertEquals(value, fixture.readWidth());
 	}
 
 	/**

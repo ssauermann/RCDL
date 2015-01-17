@@ -38,7 +38,7 @@ public class SchematicWrapper {
 	 * @throws IOException
 	 */
 	public SchematicWrapper(String path) throws FileNotFoundException, IOException {
-		if (path == null) throw new IllegalArgumentException("Path is NULL");
+		if ((path == null) || path.equals("")) throw new IllegalArgumentException("Path is empty");
 		NBTInputStream inputStream = new NBTInputStream(new FileInputStream(path));
 		root = (CompoundTag) inputStream.readTag();
 		inputStream.close();
@@ -230,6 +230,8 @@ public class SchematicWrapper {
 	 * @throws IOException
 	 */
 	public void saveChangesToFile(String path) throws FileNotFoundException, IOException {
+		if ((path == null) || path.equals("")) throw new IllegalArgumentException("Path is empty");
+
 		File f = new File(path);
 
 		if (!f.exists())
