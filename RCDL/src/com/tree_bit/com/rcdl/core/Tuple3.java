@@ -44,8 +44,7 @@ public class Tuple3 implements Comparable<Tuple3> {
 	 *            <b>Tuple</b> tuple
 	 */
 	public Tuple3(Tuple3 tuple) {
-		if(tuple==null)
-			throw new IllegalArgumentException("Tuple is NULL");
+		if (tuple == null) throw new IllegalArgumentException("Tuple is NULL");
 		x = tuple.x;
 		y = tuple.y;
 		z = tuple.z;
@@ -106,6 +105,14 @@ public class Tuple3 implements Comparable<Tuple3> {
 	 */
 	public void setZ(int z) {
 		this.z = z;
+	}
+
+	public Tuple3 add(Tuple3 t) {
+		return new Tuple3(x + t.x, y + t.y, z + t.z);
+	}
+
+	public Tuple3 negate() {
+		return new Tuple3(-x, -y, -z);
 	}
 
 	@Override
