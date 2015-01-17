@@ -40,3 +40,4 @@ proguard/
 hs_err_pid*
 .metadata/
 .settings/
+.recommenders/
