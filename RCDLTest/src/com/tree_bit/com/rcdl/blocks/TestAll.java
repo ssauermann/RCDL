@@ -1,4 +1,4 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.RunWith;
@@ -9,7 +9,7 @@ import org.junit.runners.Suite;
  * of the tests within its package as well as within any subpackages of its
  * package.
  *
- * @generatedBy CodePro at 17.01.15 17:30
+ * @generatedBy CodePro at 17.01.15 18:04
  * @author Alexander
  * @version $Revision: 1.0 $
  */
@@ -21,6 +21,7 @@ import org.junit.runners.Suite;
 	RedstoneLampTest.class,
 	RepeaterTest.class,
 	RedStoneTorchTest.class,
+	HalfSlabsTest.class,
 })
 public class TestAll {
 
@@ -29,7 +30,7 @@ public class TestAll {
 	 *
 	 * @param args the command line arguments
 	 *
-	 * @generatedBy CodePro at 17.01.15 17:30
+	 * @generatedBy CodePro at 17.01.15 18:04
 	 */
 	public static void main(String[] args) {
 		JUnitCore.runClasses(new Class[] { TestAll.class });

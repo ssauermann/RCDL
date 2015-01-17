@@ -1,50 +1,56 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
 
 import org.junit.*;
+
+import com.tree_bit.com.rcdl.blocks.Redstone;
+
 import static org.junit.Assert.*;
 
 /**
- * The class <code>BlocksTest</code> contains tests for the class <code>{@link Blocks}</code>.
+ * The class <code>RedstoneTest</code> contains tests for the class <code>{@link Redstone}</code>.
  *
  * @generatedBy CodePro at 17.01.15 17:29
  * @author Alexander
  * @version $Revision: 1.0 $
  */
-public class BlocksTest {
+public class RedstoneTest {
 	/**
-	 * Run the int getDatavalue() method test.
+	 * Run the Redstone() constructor test.
 	 *
 	 * @throws Exception
 	 *
 	 * @generatedBy CodePro at 17.01.15 17:29
 	 */
 	@Test
-	public void testGetDatavalue_1()
+	public void testRedstone_1()
 		throws Exception {
-		Blocks fixture = BlocksFactory.createcreateRedStoneTorch2();
 
-		int result = fixture.getDatavalue();
+		Redstone result = new Redstone();
 
 		// add additional test code here
-		assertEquals(4, result);
+		assertNotNull(result);
+		assertEquals(0, result.getDatavalue());
+		assertEquals(55, result.getMinecraftID());
 	}
 
 	/**
-	 * Run the int getMinecraftID() method test.
+	 * Run the Redstone(int) constructor test.
 	 *
 	 * @throws Exception
 	 *
 	 * @generatedBy CodePro at 17.01.15 17:29
 	 */
 	@Test
-	public void testGetMinecraftID_1()
+	public void testRedstone_2()
 		throws Exception {
-		Blocks fixture = BlocksFactory.createcreateRedStoneTorch();
+		int power = 1;
 
-		int result = fixture.getMinecraftID();
+		Redstone result = new Redstone(power);
 
 		// add additional test code here
-		assertEquals(75, result);
+		assertNotNull(result);
+		assertEquals(1, result.getDatavalue());
+		assertEquals(55, result.getMinecraftID());
 	}
 
 	/**
@@ -83,6 +89,6 @@ public class BlocksTest {
 	 * @generatedBy CodePro at 17.01.15 17:29
 	 */
 	public static void main(String[] args) {
-		new org.junit.runner.JUnitCore().run(BlocksTest.class);
+		new org.junit.runner.JUnitCore().run(RedstoneTest.class);
 	}
 }

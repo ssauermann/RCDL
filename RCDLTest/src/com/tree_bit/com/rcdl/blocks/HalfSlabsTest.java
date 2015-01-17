@@ -1,34 +1,38 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
 
 import org.junit.*;
+
+import com.tree_bit.com.rcdl.blocks.HalfSlabs;
+
 import static org.junit.Assert.*;
 
 /**
- * The class <code>RedstoneLampTest</code> contains tests for the class <code>{@link RedstoneLamp}</code>.
+ * The class <code>HalfSlabsTest</code> contains tests for the class <code>{@link HalfSlabs}</code>.
  *
- * @generatedBy CodePro at 17.01.15 17:29
+ * @generatedBy CodePro at 17.01.15 18:04
  * @author Alexander
  * @version $Revision: 1.0 $
  */
-public class RedstoneLampTest {
+public class HalfSlabsTest {
 	/**
-	 * Run the RedstoneLamp(RedStoneLampType) constructor test.
+	 * Run the HalfSlabs(Type,Postion) constructor test.
 	 *
 	 * @throws Exception
 	 *
-	 * @generatedBy CodePro at 17.01.15 17:29
+	 * @generatedBy CodePro at 17.01.15 18:04
 	 */
 	@Test
-	public void testRedstoneLamp_1()
+	public void testHalfSlabs_1()
 		throws Exception {
-		RedstoneLamp.RedStoneLampType type = RedstoneLamp.RedStoneLampType.RedstoneLampOFF;
+		HalfSlabs.Type type = HalfSlabs.Type.Bricks;
+		HalfSlabs.Postion position = HalfSlabs.Postion.Down;
 
-		RedstoneLamp result = new RedstoneLamp(type);
+		HalfSlabs result = new HalfSlabs(type, position);
 
 		// add additional test code here
 		assertNotNull(result);
-		assertEquals(0, result.getDatavalue());
-		assertEquals(123, result.getMinecraftID());
+		assertEquals(4, result.getDatavalue());
+		assertEquals(44, result.getMinecraftID());
 	}
 
 	/**
@@ -37,7 +41,7 @@ public class RedstoneLampTest {
 	 * @throws Exception
 	 *         if the initialization fails for some reason
 	 *
-	 * @generatedBy CodePro at 17.01.15 17:29
+	 * @generatedBy CodePro at 17.01.15 18:04
 	 */
 	@Before
 	public void setUp()
@@ -51,7 +55,7 @@ public class RedstoneLampTest {
 	 * @throws Exception
 	 *         if the clean-up fails for some reason
 	 *
-	 * @generatedBy CodePro at 17.01.15 17:29
+	 * @generatedBy CodePro at 17.01.15 18:04
 	 */
 	@After
 	public void tearDown()
@@ -64,9 +68,9 @@ public class RedstoneLampTest {
 	 *
 	 * @param args the command line arguments
 	 *
-	 * @generatedBy CodePro at 17.01.15 17:29
+	 * @generatedBy CodePro at 17.01.15 18:04
 	 */
 	public static void main(String[] args) {
-		new org.junit.runner.JUnitCore().run(RedstoneLampTest.class);
+		new org.junit.runner.JUnitCore().run(HalfSlabsTest.class);
 	}
 }

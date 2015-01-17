@@ -1,4 +1,4 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.tree_bit.com.rcdl.blocks.RedStoneTorch;
 
 /**
  * The class <code>RedStoneTorchTest</code> contains tests for the class

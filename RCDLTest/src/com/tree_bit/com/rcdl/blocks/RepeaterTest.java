@@ -1,6 +1,9 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
 
 import org.junit.*;
+
+import com.tree_bit.com.rcdl.blocks.Repeater;
+
 import static org.junit.Assert.*;
 
 /**

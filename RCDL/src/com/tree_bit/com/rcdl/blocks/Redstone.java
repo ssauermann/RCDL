@@ -1,4 +1,4 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
 
 /**
  * An Object of this class contains all Information about Redstone

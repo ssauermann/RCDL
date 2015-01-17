@@ -1,4 +1,6 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
+
+import com.tree_bit.com.rcdl.blocks.Wool;
 
 /**
  * The class <code>WoolFactory</code> implements static methods that return instances of the class

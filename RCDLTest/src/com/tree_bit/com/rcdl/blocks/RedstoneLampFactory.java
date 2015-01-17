@@ -1,4 +1,6 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.com.rcdl.blocks;
+
+import com.tree_bit.com.rcdl.blocks.RedstoneLamp;
 
 
 
@@ -26,6 +28,6 @@ public class RedstoneLampFactory
 	 * @generatedBy CodePro at 17.01.15 17:24
 	 */
 	public static RedstoneLamp createRedstoneLamp() {
-		return new RedstoneLamp(RedstoneLamp.RedStoneLampType.RedstoneLampOFF);
+		return new RedstoneLamp(RedstoneLamp.Type.RedstoneLampOFF);
 	}
 }
