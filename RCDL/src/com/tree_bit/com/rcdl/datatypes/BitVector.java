@@ -67,8 +67,21 @@ public class BitVector extends Datatype {
 		this(kind, variablename, reversed, new boolean[length]);
 	}
 
+	/**
+	 * @return <b>boolean[]</b> value
+	 */
 	@Override
 	public boolean[] getValue() {
 		return values;
+	}
+
+	/**
+	 * Sets the value of this datatype.
+	 *
+	 * @param value
+	 *            <b>boolean[]</b> value
+	 */
+	public void setValue(boolean[] values) {
+		this.values = values;
 	}
 }

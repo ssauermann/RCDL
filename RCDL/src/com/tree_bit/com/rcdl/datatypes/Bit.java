@@ -39,9 +39,22 @@ public class Bit extends Datatype {
 		this.value = value;
 	}
 
+	/**
+	 * @return <b>Boolean</b> value
+	 */
 	@Override
 	public Boolean getValue() {
 		return value;
+	}
+
+	/**
+	 * Sets the value of this datatype.
+	 *
+	 * @param value
+	 *            <b>boolean</b> value
+	 */
+	public void setValue(boolean value) {
+		this.value = value;
 	}
 
 }
