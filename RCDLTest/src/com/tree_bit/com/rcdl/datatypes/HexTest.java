@@ -27,7 +27,7 @@ public class HexTest {
 		Datatype.EKind kind = Datatype.EKind.IN;
 		char value = 'A';
 
-		Hex result = new Hex(kind, value);
+		Hex result = new Hex(kind, "ABC", value);
 
 		assertNotNull(result);
 		assertEquals(new Short((short) 10), result.getValue());
@@ -45,7 +45,7 @@ public class HexTest {
 		Datatype.EKind kind = Datatype.EKind.IN;
 		short value = (short) 1;
 
-		Hex result = new Hex(kind, value);
+		Hex result = new Hex(kind, "ABC", value);
 
 		// add additional test code here
 		assertNotNull(result);
@@ -64,7 +64,7 @@ public class HexTest {
 		Datatype.EKind kind = Datatype.EKind.IN;
 		short value = (short) -1;
 
-		Hex result = new Hex(kind, value);
+		Hex result = new Hex(kind, "ABC", value);
 
 		// add additional test code here
 		assertNotNull(result);
@@ -82,7 +82,7 @@ public class HexTest {
 		Datatype.EKind kind = Datatype.EKind.IN;
 		short value = (short) 16;
 
-		Hex result = new Hex(kind, value);
+		Hex result = new Hex(kind, "ABC", value);
 
 		// add additional test code here
 		assertNotNull(result);

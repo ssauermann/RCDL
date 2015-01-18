@@ -23,7 +23,7 @@ public class HexFactory {
 	 * @generatedBy CodePro at 17.01.15 20:13
 	 */
 	public static Hex createHex() {
-		return new Hex(Datatype.EKind.IN, '7');
+		return new Hex(Datatype.EKind.IN, "ABC", '7');
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class HexFactory {
 	 * @generatedBy CodePro at 17.01.15 20:13
 	 */
 	public static Hex createHex2() {
-		return new Hex(Datatype.EKind.IN, (short) 6);
+		return new Hex(Datatype.EKind.IN, "ABC", (short) 6);
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class HexFactory {
 	 * @generatedBy CodePro at 17.01.15 20:13
 	 */
 	public static Hex createHex3() {
-		return new Hex(Datatype.EKind.OUT, 'e');
+		return new Hex(Datatype.EKind.OUT, "ABC", 'e');
 	}
 
 	/**
@@ -50,6 +50,6 @@ public class HexFactory {
 	 * @generatedBy CodePro at 17.01.15 20:13
 	 */
 	public static Hex createHex4() {
-		return new Hex(Datatype.EKind.OUT, (short) 0);
+		return new Hex(Datatype.EKind.OUT, "ABC", (short) 0);
 	}
 }

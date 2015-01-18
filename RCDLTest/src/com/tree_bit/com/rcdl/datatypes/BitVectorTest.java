@@ -1,7 +1,11 @@
 package com.tree_bit.com.rcdl.datatypes;
 
-import org.junit.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * The class <code>BitVectorTest</code> contains tests for the class <code>{@link BitVector}</code>.
@@ -19,13 +23,12 @@ public class BitVectorTest {
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Test
-	public void testBitVector_1()
-		throws Exception {
+	public void testBitVector_1() throws Exception {
 		Datatype.EKind kind = Datatype.EKind.IN;
 		boolean[] values = new boolean[] {};
 		boolean reversed = false;
 
-		BitVector result = new BitVector(kind, values, reversed);
+		BitVector result = new BitVector(kind, "ABC", reversed, values);
 
 		// add additional test code here
 		assertNotNull(result);
@@ -39,13 +42,12 @@ public class BitVectorTest {
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Test
-	public void testBitVector_2()
-		throws Exception {
+	public void testBitVector_2() throws Exception {
 		Datatype.EKind kind = Datatype.EKind.IN;
-		boolean[] values = new boolean[] {true};
+		boolean[] values = new boolean[] { true };
 		boolean reversed = true;
 
-		BitVector result = new BitVector(kind, values, reversed);
+		BitVector result = new BitVector(kind, "ABC", reversed, values);
 
 		// add additional test code here
 		assertNotNull(result);
@@ -59,13 +61,12 @@ public class BitVectorTest {
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Test
-	public void testBitVector_3()
-		throws Exception {
+	public void testBitVector_3() throws Exception {
 		Datatype.EKind kind = Datatype.EKind.IN;
 		boolean[] values = new boolean[] {};
 		boolean reversed = true;
 
-		BitVector result = new BitVector(kind, values, reversed);
+		BitVector result = new BitVector(kind, "ABC", reversed, values);
 
 		// add additional test code here
 		assertNotNull(result);
@@ -79,8 +80,7 @@ public class BitVectorTest {
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Test
-	public void testGetValue_1()
-		throws Exception {
+	public void testGetValue_1() throws Exception {
 		BitVector fixture = BitVectorFactory.createBitVector();
 
 		boolean[] result = fixture.getValue();
@@ -95,13 +95,12 @@ public class BitVectorTest {
 	 * Perform pre-test initialization.
 	 *
 	 * @throws Exception
-	 *         if the initialization fails for some reason
+	 *             if the initialization fails for some reason
 	 *
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Before
-	public void setUp()
-		throws Exception {
+	public void setUp() throws Exception {
 		// add additional set up code here
 	}
 
@@ -109,20 +108,20 @@ public class BitVectorTest {
 	 * Perform post-test clean-up.
 	 *
 	 * @throws Exception
-	 *         if the clean-up fails for some reason
+	 *             if the clean-up fails for some reason
 	 *
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@After
-	public void tearDown()
-		throws Exception {
+	public void tearDown() throws Exception {
 		// Add additional tear down code here
 	}
 
 	/**
 	 * Launch the test.
 	 *
-	 * @param args the command line arguments
+	 * @param args
+	 *            the command line arguments
 	 *
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
