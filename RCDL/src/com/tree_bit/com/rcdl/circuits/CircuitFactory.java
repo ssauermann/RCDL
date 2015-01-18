@@ -12,10 +12,10 @@ import com.tree_bit.com.rcdl.datatypes.Bit;
 import com.tree_bit.com.rcdl.datatypes.Datatype.EKind;
 
 public class CircuitFactory {
-	public static Circuit NOT() {
+	public static Circuit NOT(String in, String out) {
 		ArrayList<IO> io = new ArrayList<>();
-		io.add(new IO(new Tuple3(0, 0, 0), new Bit(EKind.IN, "in")));
-		io.add(new IO(new Tuple3(0, 0, 1), new Bit(EKind.OUT, "out")));
+		io.add(new IO(new Tuple3(0, 0, 0), new Bit(EKind.IN, in)));
+		io.add(new IO(new Tuple3(0, 0, 1), new Bit(EKind.OUT, out)));
 
 		HashMap<Tuple3, Blocks> blocks = new HashMap<>();
 		blocks.put(new Tuple3(0, 0, 0), new Wool(Wool.WoolColor.Orange));
