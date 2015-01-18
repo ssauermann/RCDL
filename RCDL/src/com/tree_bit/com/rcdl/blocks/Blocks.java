@@ -1,20 +1,22 @@
 package com.tree_bit.com.rcdl.blocks;
 
 /**
+ * Minecraft Block
  *
  * @author Alexander
- *
+ * @author Sascha Sauermann
  */
 public abstract class Blocks {
 
 	/**
 	 * The Minecraft Id describes the Block which is used
 	 */
-	private int minecraftID;
+	protected int minecraftID;
+
 	/**
 	 * The Datavalues describe things like Orientation
 	 */
-	private int datavalue;
+	protected int datavalue;
 
 	protected String[] text = new String[4];
 
@@ -55,11 +57,30 @@ public abstract class Blocks {
 
 	/**
 	 * Retrieves Information concerning the text a sign should display later
-	 * 
+	 *
 	 * @return <b>String[]</b> text
 	 */
 	public String[] getText() {
 		return text;
 	}
 
+	/**
+	 * Mirrors the orientation of this block.
+	 */
+	public void mirror() {
+		rotate(180);
+	}
+
+	/**
+	 * Rotate the block by the given amount of degree.
+	 *
+	 * @param degree
+	 *            <b>int</b> degree (only multiples of 90 are allowed)
+	 */
+	public void rotate(int degree) {
+		if ((degree % 90) != 0)
+			throw new IllegalArgumentException(
+					"Rotation is only allowed for multiples of 90 degree.");
+		// Normal blocks are the same for each orientation.
+	}
 }

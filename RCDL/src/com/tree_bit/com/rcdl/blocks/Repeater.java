@@ -1,5 +1,6 @@
 package com.tree_bit.com.rcdl.blocks;
 
+
 /**
  * Holds all the information for a Repeater
  *
@@ -8,9 +9,14 @@ package com.tree_bit.com.rcdl.blocks;
  */
 public class Repeater extends Blocks {
 
+	private RepeaterOrientation facing;
+	private RepeaterDelay delay;
+
 	public Repeater(RepeaterType repeatertype, RepeaterOrientation orientation, RepeaterDelay delay) {
 		super(repeatertype.getMcID(), orientation.getOrientation() + delay.getDelay());
 		// Delay and orientation are given seperatly, and get converted into one int or later byte
+		facing = orientation;
+		this.delay = delay;
 	}
 
 	public enum RepeaterType {
@@ -40,6 +46,9 @@ public class Repeater extends Blocks {
 			return value;
 		}
 
+		public RepeaterOrientation getNext() {
+			return values()[(ordinal() + 1) % values().length];
+		}
 	}
 
 	public enum RepeaterDelay {
@@ -55,5 +64,32 @@ public class Repeater extends Blocks {
 			return value;
 		}
 
+		public RepeaterDelay getNext() {
+			return values()[(ordinal() + 1) % values().length];
+		}
+	}
+
+	@Override
+	public void rotate(int degree) {
+		rotate(degree);
+
+		int count = (Math.abs(degree) % 90) + 1;
+
+		if (degree < 0)
+		{
+			// -90 or -270
+			if ((degree % 180) != 0)
+			{
+				// switch -90%
+				count = (Math.abs(degree) % 90) + 3;
+			}
+		}
+
+		for (int i = 0; i < count; i++)
+		{
+			facing = facing.getNext();
+		}
+
+		datavalue = facing.getOrientation() + delay.getDelay();
 	}
 }
