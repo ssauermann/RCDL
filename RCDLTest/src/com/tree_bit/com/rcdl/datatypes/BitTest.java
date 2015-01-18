@@ -1,7 +1,11 @@
 package com.tree_bit.com.rcdl.datatypes;
 
-import org.junit.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * The class <code>BitTest</code> contains tests for the class <code>{@link Bit}</code>.
@@ -19,12 +23,11 @@ public class BitTest {
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Test
-	public void testBit_1()
-		throws Exception {
+	public void testBit_1() throws Exception {
 		Datatype.EKind kind = Datatype.EKind.IN;
 		boolean value = true;
 
-		Bit result = new Bit(kind, value);
+		Bit result = new Bit(kind, "ABC", value);
 
 		// add additional test code here
 		assertNotNull(result);
@@ -39,8 +42,7 @@ public class BitTest {
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Test
-	public void testGetValue_1()
-		throws Exception {
+	public void testGetValue_1() throws Exception {
 		Bit fixture = BitFactory.createBit();
 
 		Boolean result = fixture.getValue();
@@ -59,8 +61,7 @@ public class BitTest {
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Test
-	public void testGetValue_2()
-		throws Exception {
+	public void testGetValue_2() throws Exception {
 		Bit fixture = BitFactory.createBit2();
 
 		Boolean result = fixture.getValue();
@@ -75,13 +76,12 @@ public class BitTest {
 	 * Perform pre-test initialization.
 	 *
 	 * @throws Exception
-	 *         if the initialization fails for some reason
+	 *             if the initialization fails for some reason
 	 *
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@Before
-	public void setUp()
-		throws Exception {
+	public void setUp() throws Exception {
 		// add additional set up code here
 	}
 
@@ -89,20 +89,20 @@ public class BitTest {
 	 * Perform post-test clean-up.
 	 *
 	 * @throws Exception
-	 *         if the clean-up fails for some reason
+	 *             if the clean-up fails for some reason
 	 *
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
 	@After
-	public void tearDown()
-		throws Exception {
+	public void tearDown() throws Exception {
 		// Add additional tear down code here
 	}
 
 	/**
 	 * Launch the test.
 	 *
-	 * @param args the command line arguments
+	 * @param args
+	 *            the command line arguments
 	 *
 	 * @generatedBy CodePro at 17.01.15 20:14
 	 */
