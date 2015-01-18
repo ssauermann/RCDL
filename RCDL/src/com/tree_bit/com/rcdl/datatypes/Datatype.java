@@ -17,6 +17,11 @@ public abstract class Datatype {
 	}
 
 	/**
+	 * Name of this Datatype
+	 */
+	protected String variablename;
+
+	/**
 	 * Kind of this data type
 	 */
 	protected final EKind kind;
@@ -27,8 +32,9 @@ public abstract class Datatype {
 	 * @param kind
 	 *            <b>EKind</b> Kind of data type
 	 */
-	protected Datatype(EKind kind) {
+	protected Datatype(EKind kind, String variablename) {
 		this.kind = kind;
+		this.variablename = variablename;
 	}
 
 	/**
@@ -38,6 +44,15 @@ public abstract class Datatype {
 	 */
 	public EKind getKind() {
 		return kind;
+	}
+
+	/**
+	 * Returns the name of this datatype.
+	 *
+	 * @return <b>String</b> name
+	 */
+	public String getName() {
+		return variablename;
 	}
 
 	/**

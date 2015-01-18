@@ -27,13 +27,15 @@ public class BitVector extends Datatype {
 	 *
 	 * @param kind
 	 *            <b>EKind</b> datatype kind
+	 * @param variablename
+	 *            <b>String</b> name of this variable
+	 * @param reversed
+	 *            <b>boolean</b> value indices are reversed
 	 * @param values
 	 *            <b>bolean[]</b> values
-	 * @param reversed
-	 *            <b>boolean</b> Value indices are reversed
 	 */
-	public BitVector(EKind kind, boolean[] values, boolean reversed) {
-		super(kind);
+	public BitVector(EKind kind, String variablename, boolean reversed, boolean[] values) {
+		super(kind, variablename);
 		this.reversed = reversed;
 		if (reversed)
 		{
@@ -49,10 +51,22 @@ public class BitVector extends Datatype {
 	}
 
 	/**
-	 * Returns the value of this datatype.
+	 * Creates a new bit vector. At default the most significant bit of values has the greatest
+	 * index. If an array with the reversed order is given, the parameter reversed has to be true.
 	 *
-	 * @return <b>boolean[]</b> value
+	 * @param kind
+	 *            <b>EKind</b> datatype kind
+	 * @param variablename
+	 *            <b>String</b> name of this variable
+	 * @param reversed
+	 *            <b>boolean</b> value indices are reversed
+	 * @param length
+	 *            <b>int</b> size of the vector
 	 */
+	public BitVector(EKind kind, String variablename, boolean reversed, int length) {
+		this(kind, variablename, reversed, new boolean[length]);
+	}
+
 	@Override
 	public boolean[] getValue() {
 		return values;
