@@ -16,6 +16,8 @@ public abstract class Blocks {
 	 */
 	private int datavalue;
 
+	protected String[] text = new String[4];
+
 	/**
 	 * Sets the Object Up with the Information about its ID and value
 	 *
@@ -30,6 +32,7 @@ public abstract class Blocks {
 					"Datavalues higher than 15 and lower than 0 are permitted.");
 		minecraftID = mcID;
 		this.datavalue = datavalue;
+		text = null;
 	}
 
 	/**
@@ -48,6 +51,15 @@ public abstract class Blocks {
 	 */
 	public int getDatavalue() {
 		return datavalue;
+	}
+
+	/**
+	 * Retrieves Information concerning the text a sign should display later
+	 * 
+	 * @return <b>String[]</b> text
+	 */
+	public String[] getText() {
+		return text;
 	}
 
 }
