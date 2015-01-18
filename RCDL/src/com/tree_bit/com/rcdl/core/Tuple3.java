@@ -144,4 +144,8 @@ public class Tuple3 implements Comparable<Tuple3> {
 		int valOther = ((o.getX() * o.getX()) + (o.getY() * o.getY()) + (o.getZ() * o.getZ()));
 		return valThis - valOther;
 	}
+
+	public int getSize() {
+		return getX() * getY() * getZ();
+	}
 }
