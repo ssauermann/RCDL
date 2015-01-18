@@ -115,6 +115,14 @@ public class Tuple3 implements Comparable<Tuple3> {
 		return new Tuple3(-x, -y, -z);
 	}
 
+	public Tuple3 multiply(int m) {
+		return new Tuple3(x * m, y * m, z * m);
+	}
+
+	public Tuple3 divide(int m) {
+		return new Tuple3(x / m, y / m, z / m);
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -145,7 +153,7 @@ public class Tuple3 implements Comparable<Tuple3> {
 		return valThis - valOther;
 	}
 
-	public int getSize() {
+	public int getVolume() {
 		return getX() * getY() * getZ();
 	}
 }
