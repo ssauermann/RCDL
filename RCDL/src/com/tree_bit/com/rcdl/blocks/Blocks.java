@@ -53,4 +53,13 @@ public abstract class Blocks {
 		return datavalue;
 	}
 
+	/**
+	 * Retrieves Information concerning the text a sign should display later
+	 * 
+	 * @return <b>String[]</b> text
+	 */
+	public String[] getText() {
+		return text;
+	}
+
 }

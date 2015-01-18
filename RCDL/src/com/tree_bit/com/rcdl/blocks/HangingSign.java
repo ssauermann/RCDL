@@ -18,7 +18,7 @@ public class HangingSign extends Blocks {
 	public HangingSign(Orientation orientation, String[] text) {
 		super(68, orientation.getOrientation());
 		if (text.length > 4)
-			throw new IllegalArgumentException("To much text for a sign. String array is to big.");
+			throw new IllegalArgumentException("Too much text for a sign. String array is too big.");
 		this.text = text;
 	}
 
