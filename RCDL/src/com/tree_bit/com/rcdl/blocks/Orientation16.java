@@ -66,7 +66,7 @@ public enum Orientation16 implements IOrientationEnum, IDataValueEnum {
 				return values()[24 - ordinal()];
 		} else
 			// 16-number mod 16
-			return values()[(16 - ordinal()) & 16];
+			return values()[(16 - ordinal()) % 16];
 
 	}
 
