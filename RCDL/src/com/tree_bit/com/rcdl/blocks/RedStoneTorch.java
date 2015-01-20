@@ -1,84 +1,83 @@
 package com.tree_bit.com.rcdl.blocks;
 
+import com.tree_bit.math.MathExtended;
+
 /**
- * This Class holds all Information about a Redstone Torch
+ * This Class holds all Information about a Redstone Torch.
  *
  * @author Alexander
  * @author Sascha Sauermann
- *
  */
 public class RedStoneTorch extends Blocks {
 
-	private TorchDataValues facing;
+	private Orientation facing;
 
-	public RedStoneTorch(TorchType torchtype, TorchDataValues torchdatavalues) {
-		super(torchtype.getMcID(), torchdatavalues.getDataValue());
+	public RedStoneTorch(Type torchtype, Orientation torchdatavalues) {
+		super(torchtype.getID(), torchdatavalues.getDataValue());
 		facing = torchdatavalues;
 	}
 
-	public enum TorchType {
+	public enum Type implements IBlockTypeEnum {
 		RedstoneTorchOff(75), RedstoneTorchOn(76);
 
 		private int mcID;
 
-		private TorchType(int id) {
+		private Type(int id) {
 			mcID = id;
 		}
 
-		private int getMcID() {
+		@Override
+		public int getID() {
 			return mcID;
 		}
 	}
 
-	public enum TorchDataValues {
+	public enum Orientation implements IDataValueEnum, IOrientationEnum {
 		FacingEast(1), FacingSouth(3), FacingWest(2), FacingNorth(4), FacingUp(5);
 
 		private int value;
 
-		private TorchDataValues(int value) {
+		private Orientation(int value) {
 			this.value = value;
 		}
 
-		private int getDataValue() {
+		@Override
+		public int getDataValue() {
 			return value;
 		}
 
-		public TorchDataValues getNext() {
-			return values()[(ordinal() + 1) % values().length];
+		@Override
+		public Orientation rotate(int n) {
+			if (value == FacingUp.value) return FacingUp;
+			return next(n + ((n + ordinal()) / 4));
+		}
+
+		@Override
+		public Orientation mirror(boolean xAxis) {
+			if (value == FacingUp.value) return FacingUp;
+			if (xAxis)
+			{
+				if (next(0) == FacingSouth)
+					return FacingNorth;
+				else if (next(0) == FacingNorth) return FacingSouth;
+			} else
+			{
+				if (next(0) == FacingEast)
+					return FacingWest;
+				else if (next(0) == FacingWest) return FacingEast;
+			}
+			return next(0);
+		}
+
+		@Override
+		public Orientation next(int i) {
+			return values()[MathExtended.mod((ordinal() + i), 16)];
 		}
 
 	}
 
 	@Override
-	public void rotate(int degree) {
-		rotate(degree);
-
-		// Facing up has no rotation
-		if (facing == TorchDataValues.FacingUp) return;
-
-		int count = (Math.abs(degree) % 90) + 1;
-
-		if (degree < 0)
-		{
-			// -90 or -270
-			if ((degree % 180) != 0)
-			{
-				// switch -90%
-				count = (Math.abs(degree) % 90) + 3;
-			}
-		}
-
-		for (int i = 0; i < count; i++)
-		{
-			facing = facing.getNext();
-
-			// Facing Up is no valid rotation
-			if (facing == TorchDataValues.FacingUp)
-			{
-				facing = facing.getNext();
-			}
-		}
-
-		datavalue = facing.getDataValue();
+	public void rotateCount(int n) {
+		facing = facing.rotate(n);
 	}
 }
