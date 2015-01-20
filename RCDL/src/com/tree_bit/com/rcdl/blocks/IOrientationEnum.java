@@ -32,7 +32,10 @@ public interface IOrientationEnum {
 	/**
 	 * Returns the next orientation. This should follow an reasonable order.
 	 *
+	 * @param i
+	 *            <b>int</b> index
+	 *
 	 * @return <b>IOrientation</b> returns the next orientation.
 	 */
-	public IOrientationEnum next();
+	public IOrientationEnum next(int i);
 }
