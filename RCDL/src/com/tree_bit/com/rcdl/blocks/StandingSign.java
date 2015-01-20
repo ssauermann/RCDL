@@ -1,8 +1,11 @@
 package com.tree_bit.com.rcdl.blocks;
 
 /**
- * A sign which is placed on top of another Block (if you want a sign which is on the side of a
- * block use HangingSign instead)
+ * A sign which is placed on top of another block (if you want a sign which is on the side of a
+ * block use {@link HangingSign} instead).
+ *
+ * To configure the orientation of this sign use the values of the {@link Orientation16
+ * Orientation16 Enum}.
  *
  * @author Alexander
  * @author Sascha Sauermann
@@ -10,7 +13,7 @@ package com.tree_bit.com.rcdl.blocks;
  */
 public class StandingSign extends Blocks {
 
-	private Orientation orientation;
+	private Orientation16 orientation;
 
 	/**
 	 * The Direction the sign is facing++
@@ -18,32 +21,12 @@ public class StandingSign extends Blocks {
 	 * @param orientation
 	 *            (NorthNorthEast , NorthEast, North etc.)
 	 */
-	public StandingSign(Orientation orientation, String[] text) {
-		super(63, orientation.getOrientation());
+	public StandingSign(Orientation16 orientation, String[] text) {
+		super(63, orientation.getDataValue());
 		if (text.length > 4)
 			throw new IllegalArgumentException("Too much text for a sign. String array is too big.");
 		this.text = text;
 		this.orientation = orientation;
-	}
-
-	public enum Orientation {
-		South(0), SouthSouthWest(1), SouthWest(2), WestSouthWest(3), West(4), WestNorthWest(5), NorthWest(
-				6), NorthNorthWest(7), North(8), NorthNorthEast(9), NorthEast(10), EastNorthEast(11), East(
-				12), EastSouthEast(13), SouthEast(14), SouthSouthEast(15);
-
-		private int value;
-
-		private Orientation(int value) {
-			this.value = value;
-		}
-
-		private int getOrientation() {
-			return value;
-		}
-
-		public Orientation getNext() {
-			return values()[(ordinal() + 1) % values().length];
-		}
 	}
 
 	@Override
@@ -64,9 +47,14 @@ public class StandingSign extends Blocks {
 
 		for (int i = 0; i < (count * 4); i++)
 		{
-			orientation = orientation.getNext();
+			orientation = orientation.next();
 		}
 
-		datavalue = orientation.getOrientation();
+		datavalue = orientation.getDataValue();
+	}
+
+	@Override
+	public void mirror(boolean xAxis) {
+		orientation = orientation.mirror(xAxis);
 	}
 }

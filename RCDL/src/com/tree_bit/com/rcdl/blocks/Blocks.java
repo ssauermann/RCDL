@@ -65,10 +65,13 @@ public abstract class Blocks {
 	}
 
 	/**
-	 * Mirrors the orientation of this block.
+	 * Mirrors the orientation of this block at the x(east-west) or the z(south-north) axis.
+	 *
+	 * @param xAxis
+	 *            <b>boolean</b> Mirrors the block at the x (true) or the y-axis (true).
 	 */
-	public void mirror() {
-		rotate(180);
+	public void mirror(boolean xAxis) {
+		// Normal blocks are the same after mirroring.
 	}
 
 	/**
