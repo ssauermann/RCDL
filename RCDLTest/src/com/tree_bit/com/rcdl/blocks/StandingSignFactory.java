@@ -23,8 +23,8 @@ public class StandingSignFactory {
 	 * @generatedBy CodePro at 18.01.15 17:22
 	 */
 	public static StandingSign createStandingSign() {
-		return new StandingSign(StandingSign.Orientation.East, new String[] { "", "0123456789",
-				"Ant-1.0.txt", null });
+		return new StandingSign(Orientation16.East, new String[] { "", "0123456789", "Ant-1.0.txt",
+				null });
 	}
 
 	/**
@@ -33,6 +33,6 @@ public class StandingSignFactory {
 	 * @generatedBy CodePro at 18.01.15 17:22
 	 */
 	public static StandingSign createStandingSign2() {
-		return new StandingSign(StandingSign.Orientation.EastNorthEast, new String[] { "" });
+		return new StandingSign(Orientation16.EastNorthEast, new String[] { "" });
 	}
 }

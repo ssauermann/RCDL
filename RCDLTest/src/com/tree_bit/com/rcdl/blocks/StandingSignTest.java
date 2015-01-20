@@ -1,10 +1,15 @@
 package com.tree_bit.com.rcdl.blocks;
 
-import org.junit.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * The class <code>StandingSignTest</code> contains tests for the class <code>{@link StandingSign}</code>.
+ * The class <code>StandingSignTest</code> contains tests for the class
+ * <code>{@link StandingSign}</code>.
  *
  * @generatedBy CodePro at 18.01.15 17:24
  * @author Alexander
@@ -19,9 +24,8 @@ public class StandingSignTest {
 	 * @generatedBy CodePro at 18.01.15 17:24
 	 */
 	@Test
-	public void testStandingSign_1()
-		throws Exception {
-		StandingSign.Orientation orientation = StandingSign.Orientation.East;
+	public void testStandingSign_1() throws Exception {
+		Orientation16 orientation = Orientation16.East;
 		String[] text = new String[] {};
 
 		StandingSign result = new StandingSign(orientation, text);
@@ -40,10 +44,9 @@ public class StandingSignTest {
 	 * @generatedBy CodePro at 18.01.15 17:24
 	 */
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void testStandingSign_2()
-		throws Exception {
-		StandingSign.Orientation orientation = StandingSign.Orientation.East;
-		String[] text = new String[] {null, null, null, null, null};
+	public void testStandingSign_2() throws Exception {
+		Orientation16 orientation = Orientation16.East;
+		String[] text = new String[] { null, null, null, null, null };
 
 		StandingSign result = new StandingSign(orientation, text);
 
@@ -55,13 +58,12 @@ public class StandingSignTest {
 	 * Perform pre-test initialization.
 	 *
 	 * @throws Exception
-	 *         if the initialization fails for some reason
+	 *             if the initialization fails for some reason
 	 *
 	 * @generatedBy CodePro at 18.01.15 17:24
 	 */
 	@Before
-	public void setUp()
-		throws Exception {
+	public void setUp() throws Exception {
 		// add additional set up code here
 	}
 
@@ -69,20 +71,20 @@ public class StandingSignTest {
 	 * Perform post-test clean-up.
 	 *
 	 * @throws Exception
-	 *         if the clean-up fails for some reason
+	 *             if the clean-up fails for some reason
 	 *
 	 * @generatedBy CodePro at 18.01.15 17:24
 	 */
 	@After
-	public void tearDown()
-		throws Exception {
+	public void tearDown() throws Exception {
 		// Add additional tear down code here
 	}
 
 	/**
 	 * Launch the test.
 	 *
-	 * @param args the command line arguments
+	 * @param args
+	 *            the command line arguments
 	 *
 	 * @generatedBy CodePro at 18.01.15 17:24
 	 */

@@ -67,6 +67,10 @@ public abstract class Blocks {
 	/**
 	 * Mirrors the orientation of this block at the x(east-west) or the z(south-north) axis.
 	 *
+	 * <p>
+	 * Child classes should overwrite this method if they have an orientation.
+	 * </p>
+	 *
 	 * @param xAxis
 	 *            <b>boolean</b> Mirrors the block at the x (true) or the y-axis (true).
 	 */
@@ -77,13 +81,38 @@ public abstract class Blocks {
 	/**
 	 * Rotate the block by the given amount of degree.
 	 *
+	 * <p>
+	 * Child classes should overwrite {@link #rotateCount(int)} if they have an orientation.
+	 * </p>
+	 *
 	 * @param degree
 	 *            <b>int</b> degree (only multiples of 90 are allowed)
 	 */
-	public void rotate(int degree) {
+	public final void rotate(int degree) {
 		if ((degree % 90) != 0)
 			throw new IllegalArgumentException(
 					"Rotation is only allowed for multiples of 90 degree.");
-		// Normal blocks are the same for each orientation.
+
+		int count = degree / 90;
+
+		if (degree < 0)
+		{
+			count--;
+		} else
+		{
+			count++;
+		}
+
+		rotateCount(count);
+	}
+
+	/**
+	 * Rotates the block the given amount of times (90 degree each turn).
+	 *
+	 * @param count
+	 *            <b>int</b> rotation amount
+	 */
+	protected void rotateCount(int count) {
+		// No rotation for normal blocks
 	}
 }

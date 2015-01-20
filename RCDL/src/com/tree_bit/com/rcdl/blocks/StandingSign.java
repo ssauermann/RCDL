@@ -13,43 +13,30 @@ package com.tree_bit.com.rcdl.blocks;
  */
 public class StandingSign extends Blocks {
 
+	/**
+	 * Current orientation
+	 */
 	private Orientation16 orientation;
 
 	/**
-	 * The Direction the sign is facing++
+	 * Creates a new standing sign with the given orientation.
 	 *
 	 * @param orientation
-	 *            (NorthNorthEast , NorthEast, North etc.)
+	 *            <b>Orientation16</b> orientation ({@link Orientation16})
+	 * @param <b>String[]</b> sign text, one line per entry (max array length 4)
 	 */
 	public StandingSign(Orientation16 orientation, String[] text) {
 		super(63, orientation.getDataValue());
 		if (text.length > 4)
-			throw new IllegalArgumentException("Too much text for a sign. String array is too big.");
+			throw new IllegalArgumentException(
+					"Too much text for a sign. String array is too big (max 4): " + text.length);
 		this.text = text;
 		this.orientation = orientation;
 	}
 
 	@Override
-	public void rotate(int degree) {
-		rotate(degree);
-
-		int count = (Math.abs(degree) % 90) + 1;
-
-		if (degree < 0)
-		{
-			// -90 or -270
-			if ((degree % 180) != 0)
-			{
-				// switch -90%
-				count = (Math.abs(degree) % 90) + 3;
-			}
-		}
-
-		for (int i = 0; i < (count * 4); i++)
-		{
-			orientation = orientation.next();
-		}
-
+	public void rotateCount(int count) {
+		orientation = orientation.rotate(count * 4);
 		datavalue = orientation.getDataValue();
 	}
 
