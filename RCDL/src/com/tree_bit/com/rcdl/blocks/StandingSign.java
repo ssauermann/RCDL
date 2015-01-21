@@ -13,9 +13,7 @@ package com.tree_bit.com.rcdl.blocks;
  */
 public class StandingSign extends Blocks {
 
-	/**
-	 * Current orientation
-	 */
+	/** Current orientation */
 	private Orientation16 orientation;
 
 	/**
@@ -36,12 +34,31 @@ public class StandingSign extends Blocks {
 
 	@Override
 	public void rotateCount(int count) {
-		orientation = orientation.rotate(count * 4);
-		datavalue = orientation.getDataValue();
+		setOrientation(orientation.rotate(count * 4));
 	}
 
 	@Override
 	public void mirror(boolean xAxis) {
-		orientation = orientation.mirror(xAxis);
+		setOrientation(orientation.mirror(xAxis));
+	}
+
+	/**
+	 * Sets the orientation of this block.
+	 *
+	 * @param orientation
+	 *            <b>Orientation16</b> orientation
+	 */
+	public void setOrientation(Orientation16 orientation) {
+		this.orientation = orientation;
+		datavalue = orientation.getDataValue();
+	}
+
+	/**
+	 * Returns the orientation of this block.
+	 *
+	 * @return <b>Orientation16</b> orientation
+	 */
+	public Orientation16 getOrientation() {
+		return orientation;
 	}
 }
