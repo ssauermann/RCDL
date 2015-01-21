@@ -3,25 +3,51 @@ package com.tree_bit.com.rcdl.blocks;
 import com.tree_bit.math.MathExtended;
 
 /**
- * This Class holds all Information about a Redstone Torch.
+ * This Class holds all information about a Redstone Torch.
  *
  * @author Alexander
  * @author Sascha Sauermann
  */
-public class RedStoneTorch extends Blocks {
+public class RedstoneTorch extends Blocks {
 
+	/**
+	 * orientation
+	 */
 	private Orientation facing;
 
-	public RedStoneTorch(Type torchtype, Orientation torchdatavalues) {
+	/**
+	 * Creates a new RedstoneTorch with the given type and parameter.
+	 *
+	 * @param torchtype
+	 *            <b>Type</b> ({@link Type})
+	 * @param torchdatavalues
+	 *            <b>Orientation</b> ({@link Orientation})
+	 */
+	public RedstoneTorch(Type torchtype, Orientation torchdatavalues) {
 		super(torchtype.getID(), torchdatavalues.getDataValue());
 		facing = torchdatavalues;
 	}
 
+	/**
+	 * Redstone Torch Type
+	 *
+	 * @author Sascha Sauermann
+	 * @author Alexander
+	 */
 	public enum Type implements IBlockTypeEnum {
-		RedstoneTorchOff(75), RedstoneTorchOn(76);
+		Off(75), On(76);
 
+		/**
+		 * Minecraft block id
+		 */
 		private int mcID;
 
+		/**
+		 * Creates a new Torch Type.
+		 *
+		 * @param id
+		 *            <b>int</b> block id
+		 */
 		private Type(int id) {
 			mcID = id;
 		}
@@ -32,11 +58,25 @@ public class RedStoneTorch extends Blocks {
 		}
 	}
 
+	/**
+	 * Redstone Torch Orientation.
+	 *
+	 * @author Sascha Sauermann
+	 * @author Alexander
+	 */
 	public enum Orientation implements IDataValueEnum, IOrientationEnum {
 		FacingEast(1), FacingSouth(3), FacingWest(2), FacingNorth(4), FacingUp(5);
 
+		/**
+		 * data value
+		 */
 		private int value;
 
+		/**
+		 * Creates a new Redstone Torch Orientation.
+		 *
+		 * @param value
+		 */
 		private Orientation(int value) {
 			this.value = value;
 		}
@@ -71,7 +111,9 @@ public class RedStoneTorch extends Blocks {
 
 		@Override
 		public Orientation next(int i) {
-			return values()[MathExtended.mod((ordinal() + i), 16)];
+			Orientation temp = values()[MathExtended.mod((ordinal() + i), 16)];
+			if (temp != null) return temp;
+			throw new IllegalStateException();
 		}
 
 	}

@@ -18,7 +18,7 @@ import com.tree_bit.math.MathExtended;
 public enum Orientation16 implements IOrientationEnum, IDataValueEnum {
 	South(0), SouthSouthWest(1), SouthWest(2), WestSouthWest(3), West(4), WestNorthWest(5), NorthWest(
 			6), NorthNorthWest(7), North(8), NorthNorthEast(9), NorthEast(10), EastNorthEast(11), East(
-					12), EastSouthEast(13), SouthEast(14), SouthSouthEast(15);
+			12), EastSouthEast(13), SouthEast(14), SouthSouthEast(15);
 
 	/**
 	 * Data value
@@ -40,7 +40,9 @@ public enum Orientation16 implements IOrientationEnum, IDataValueEnum {
 	 */
 	@Override
 	public Orientation16 next(int i) {
-		return values()[MathExtended.mod((ordinal() + i), 16)];
+		Orientation16 temp = values()[MathExtended.mod((ordinal() + i), 16)];
+		if (temp != null) return temp;
+		throw new IllegalStateException();
 	}
 
 	/**
@@ -56,18 +58,25 @@ public enum Orientation16 implements IOrientationEnum, IDataValueEnum {
 	 */
 	@Override
 	public Orientation16 mirror(boolean xAxis) {
+		Orientation16 returnV;
 		if (xAxis)
 		{
 			if (ordinal() <= 8)
+			{
 				// 0-8 => 8-number
-				return values()[8 - ordinal()];
-			else
+				returnV = values()[8 - ordinal()];
+			} else
+			{
 				// 9-15 => 24-number
-				return values()[24 - ordinal()];
+				returnV = values()[24 - ordinal()];
+			}
 		} else
+		{
 			// 16-number mod 16
-			return values()[(16 - ordinal()) % 16];
-
+			returnV = values()[(16 - ordinal()) % 16];
+		}
+		if (returnV != null) return returnV;
+		throw new IllegalStateException();
 	}
 
 	@Override
