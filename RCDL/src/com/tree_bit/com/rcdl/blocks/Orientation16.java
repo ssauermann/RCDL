@@ -20,9 +20,7 @@ public enum Orientation16 implements IOrientationEnum, IDataValueEnum {
 			6), NorthNorthWest(7), North(8), NorthNorthEast(9), NorthEast(10), EastNorthEast(11), East(
 			12), EastSouthEast(13), SouthEast(14), SouthSouthEast(15);
 
-	/**
-	 * Data value
-	 */
+	/** Data value */
 	private int value;
 
 	/**

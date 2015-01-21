@@ -10,9 +10,7 @@ import com.tree_bit.math.MathExtended;
  */
 public class RedstoneTorch extends Blocks {
 
-	/**
-	 * orientation
-	 */
+	/** orientation. */
 	private Orientation facing;
 
 	/**
@@ -29,17 +27,19 @@ public class RedstoneTorch extends Blocks {
 	}
 
 	/**
-	 * Redstone Torch Type
+	 * Redstone Torch Type.
 	 *
 	 * @author Sascha Sauermann
 	 * @author Alexander
 	 */
 	public enum Type implements IBlockTypeEnum {
-		Off(75), On(76);
 
-		/**
-		 * Minecraft block id
-		 */
+		/** Off state. */
+		Off(75),
+		/** On state */
+		On(76);
+
+		/** Minecraft block id. */
 		private int mcID;
 
 		/**
@@ -65,17 +65,26 @@ public class RedstoneTorch extends Blocks {
 	 * @author Alexander
 	 */
 	public enum Orientation implements IDataValueEnum, IOrientationEnum {
-		FacingEast(1), FacingSouth(3), FacingWest(2), FacingNorth(4), FacingUp(5);
 
-		/**
-		 * data value
-		 */
+		/** The Facing east. */
+		FacingEast(1),
+		/** The Facing south. */
+		FacingSouth(3),
+		/** The Facing west. */
+		FacingWest(2),
+		/** The Facing north. */
+		FacingNorth(4),
+		/** The Facing up. */
+		FacingUp(5);
+
+		/** data value. */
 		private int value;
 
 		/**
 		 * Creates a new Redstone Torch Orientation.
 		 *
 		 * @param value
+		 *            the value
 		 */
 		private Orientation(int value) {
 			this.value = value;
@@ -86,12 +95,18 @@ public class RedstoneTorch extends Blocks {
 			return value;
 		}
 
+		/**
+		 * @return <b>Orientation</b> orientation
+		 */
 		@Override
 		public Orientation rotate(int n) {
 			if (value == FacingUp.value) return FacingUp;
 			return next(n + ((n + ordinal()) / 4));
 		}
 
+		/**
+		 * @return <b>Orientation</b> orientation
+		 */
 		@Override
 		public Orientation mirror(boolean xAxis) {
 			if (value == FacingUp.value) return FacingUp;
@@ -109,6 +124,9 @@ public class RedstoneTorch extends Blocks {
 			return next(0);
 		}
 
+		/**
+		 * @return <b>Orientation</b> orientation
+		 */
 		@Override
 		public Orientation next(int i) {
 			Orientation temp = values()[MathExtended.mod((ordinal() + i), 16)];
@@ -120,6 +138,31 @@ public class RedstoneTorch extends Blocks {
 
 	@Override
 	public void rotateCount(int n) {
-		facing = facing.rotate(n);
+		setOrientation(facing.rotate(n));
+	}
+
+	@Override
+	public void mirror(boolean xAxis) {
+		setOrientation(facing.mirror(xAxis));
+	}
+
+	/**
+	 * Sets the orientation of this block.
+	 *
+	 * @param orientation
+	 *            <b>Orientation</b> orientation
+	 */
+	public void setOrientation(Orientation orientation) {
+		facing = orientation;
+		datavalue = orientation.getDataValue();
+	}
+
+	/**
+	 * Returns the orientation of this block.
+	 *
+	 * @return <b>Orientation</b> orientation
+	 */
+	public Orientation getOrientation() {
+		return facing;
 	}
 }
