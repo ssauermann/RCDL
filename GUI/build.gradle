@@ -1,0 +1,29 @@
+//Plugins
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'eclipse'
+
+// Default tasks
+defaultTasks 'check', 'build'
+
+// Basic project information
+group = 'com.tree_bit'
+archivesBaseName = 'rcdl-core'
+version = '0.1-SNAPSHOT'
+
+// Minimum version of Java required
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile project(':Core')
+	compile group: 'com.google.guava', name: 'guava', version: '12.0'
+}
+
+checkstyle {
+	configFile = project(':BlockAPI').file('checkstyle.xml')
+}
