@@ -35,7 +35,16 @@ public class Circuit {
 	private final HashMap<String, IO> inputs;
 
 	/**
-	 * HashMap containing all blocks of this circuit
+	 * HashMap containing all blocks of this circuit. Coordinate origin is at north-west corner.
+	 *
+	 * <p>
+	 * <ul>
+	 * <li>X+ = EAST</li>
+	 * <li>X- = WEST</li>
+	 * <li>Z+ = SOUTH</li>
+	 * <li>Z- = NORTH</li>
+	 * </ul>
+	 * </p>
 	 */
 	private final HashMap<Tuple3, Blocks> blocks;
 
@@ -91,6 +100,17 @@ public class Circuit {
 			}
 		}
 		return inputs;
+	}
+
+	public void rotate(int degree) {
+		if ((degree % 90) != 0)
+			throw new IllegalArgumentException(
+					"Rotation is only allowed for multiples of 90 degree.");
+		// TODO: Rotation
+	}
+
+	public void mirror() {
+		// TODO: mirroring implementation
 	}
 
 	@Override

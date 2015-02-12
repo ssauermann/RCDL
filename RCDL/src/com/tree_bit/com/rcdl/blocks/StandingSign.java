@@ -1,41 +1,64 @@
 package com.tree_bit.com.rcdl.blocks;
 
 /**
- * A sign which is placed on top of another Block (if you want a sign which is on the side of a
- * block use HangingSign instead)
+ * A sign which is placed on top of another block (if you want a sign which is on the side of a
+ * block use {@link HangingSign} instead).
+ *
+ * To configure the orientation of this sign use the values of the {@link Orientation16
+ * Orientation16 Enum}.
  *
  * @author Alexander
+ * @author Sascha Sauermann
  *
  */
 public class StandingSign extends Blocks {
 
+	/** Current orientation */
+	private Orientation16 orientation;
+
 	/**
-	 * The Direction the sign is facing++
+	 * Creates a new standing sign with the given orientation.
 	 *
 	 * @param orientation
-	 *            (NorthNorthEast , NorthEast, North etc.)
+	 *            <b>Orientation16</b> orientation ({@link Orientation16})
+	 * @param <b>String[]</b> sign text, one line per entry (max array length 4)
 	 */
-	public StandingSign(Orientation orientation, String[] text) {
-		super(63, orientation.getOrientation());
+	public StandingSign(Orientation16 orientation, String[] text) {
+		super(63, orientation.getDataValue());
 		if (text.length > 4)
-			throw new IllegalArgumentException("Too much text for a sign. String array is too big.");
+			throw new IllegalArgumentException(
+					Messages.getString("StandingSign.IllegalTextArray") + text.length); //$NON-NLS-1$
 		this.text = text;
+		this.orientation = orientation;
 	}
 
-	public enum Orientation {
-		South(0), SouthSouthWest(1), SouthWest(2), WestSouthWest(3), West(4), WestNorthWest(5), NorthWest(
-				6), NorthNorthWest(7), North(8), NorthNorthEast(9), NorthEast(10), EastNorthEast(11), East(
-						12), EastSouthEast(13), SouthEast(14), SouthSouthEast(15);
-
-		private int value;
-
-		private Orientation(int value) {
-			this.value = value;
-		}
-
-		private int getOrientation() {
-			return value;
-		}
+	@Override
+	public void rotateCount(int count) {
+		setOrientation(orientation.rotate(count * 4));
 	}
 
+	@Override
+	public void mirror(boolean xAxis) {
+		setOrientation(orientation.mirror(xAxis));
+	}
+
+	/**
+	 * Sets the orientation of this block.
+	 *
+	 * @param orientation
+	 *            <b>Orientation16</b> orientation
+	 */
+	public void setOrientation(Orientation16 orientation) {
+		this.orientation = orientation;
+		datavalue = orientation.getDataValue();
+	}
+
+	/**
+	 * Returns the orientation of this block.
+	 *
+	 * @return <b>Orientation16</b> orientation
+	 */
+	public Orientation16 getOrientation() {
+		return orientation;
+	}
 }
