@@ -1,5 +1,6 @@
 package com.tree_bit.com.rcdl.blocks;
 
+
 /**
  * A Sign which is placed on the side of a block (not on Top, if you need to place a sign on top of
  * a block use StandingSign instead)
@@ -19,14 +20,14 @@ public class HangingSign extends Blocks {
 	 *            (North, West etc.)
 	 */
 	public HangingSign(Orientation orientation, String[] text) {
-		super(68, orientation.getOrientation());
+		super(68, orientation.getDataValue());
 		if (text.length > 4)
-			throw new IllegalArgumentException("Too much text for a sign. String array is too big.");
+			throw new IllegalArgumentException(Messages.getString("StandingSign.IllegalTextArray")); //$NON-NLS-1$
 		this.text = text;
 		this.orientation = orientation;
 	}
 
-	public enum Orientation {
+	public enum Orientation implements IDataValueEnum, IOrientationEnum {
 		North(2), East(5), South(3), West(4);
 
 		private int value;
@@ -35,36 +36,50 @@ public class HangingSign extends Blocks {
 			this.value = value;
 		}
 
-		private int getOrientation() {
-			return value;
+		@Override
+		public Orientation rotate(int n) {
+			return next(1);
 		}
 
-		public Orientation getNext() {
-			return values()[(ordinal() + 1) % values().length];
+		@Override
+		public Orientation mirror(boolean xAxis) {
+			if (xAxis)
+			{
+				if (next(0) == South)
+					return North;
+				else if (next(0) == North) return South;
+			} else
+			{
+				if (next(0) == East)
+					return West;
+				else if (next(0) == West) return East;
+			}
+			return next(0);
+		}
+
+		@Override
+		public Orientation next(int i) {
+			Orientation temp = values()[(ordinal() + i) % values().length];
+			if (temp != null) return temp;
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public int getDataValue() {
+			return value;
 		}
 	}
 
 	@Override
-	public void rotate(int degree) {
-		rotate(degree);
+	public void rotateCount(int n) {
+		setOrientation(orientation.rotate(n));
+	}
 
-		int count = (Math.abs(degree) % 90) + 1;
+	public void setOrientation(Orientation orientation) {
+		this.orientation = orientation;
+	}
 
-		if (degree < 0)
-		{
-			// -90 or -270
-			if ((degree % 180) != 0)
-			{
-				// switch -90%
-				count = (Math.abs(degree) % 90) + 3;
-			}
-		}
-
-		for (int i = 0; i < count; i++)
-		{
-			orientation = orientation.getNext();
-		}
-
-		datavalue = orientation.getOrientation();
+	public Orientation getOrientation() {
+		return orientation;
 	}
 }

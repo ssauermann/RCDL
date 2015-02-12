@@ -8,16 +8,14 @@ package com.tree_bit.com.rcdl.blocks;
  */
 public abstract class Blocks {
 
-	/**
-	 * The Minecraft Id describes the Block which is used
-	 */
+	/** The Minecraft Id describes the Block which is used */
 	protected int minecraftID;
 
-	/**
-	 * The Datavalues describe things like Orientation
-	 */
+	/** The Datavalues describe things like Orientation */
 	protected int datavalue;
 
+	/** sign text */
+	// TODO: Not an attribute of all blocks
 	protected String[] text = new String[4];
 
 	/**
@@ -31,7 +29,7 @@ public abstract class Blocks {
 	public Blocks(int mcID, int datavalue) {
 		if ((datavalue > 15) || (datavalue < 0))
 			throw new IllegalArgumentException(
-					"Datavalues higher than 15 and lower than 0 are permitted.");
+					Messages.getString("Blocks.Datavalues0To15Exception")); //$NON-NLS-1$
 		minecraftID = mcID;
 		this.datavalue = datavalue;
 		text = null;
@@ -91,7 +89,7 @@ public abstract class Blocks {
 	public final void rotate(int degree) {
 		if ((degree % 90) != 0)
 			throw new IllegalArgumentException(
-					"Rotation is only allowed for multiples of 90 degree.");
+					Messages.getString("Blocks.Rotation90DegreeException")); //$NON-NLS-1$
 
 		int count = degree / 90;
 

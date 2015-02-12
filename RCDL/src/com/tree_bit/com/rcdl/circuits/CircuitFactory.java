@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.tree_bit.com.rcdl.blocks.Blocks;
-import com.tree_bit.com.rcdl.blocks.RedStoneTorch;
-import com.tree_bit.com.rcdl.blocks.RedStoneTorch.TorchType;
+import com.tree_bit.com.rcdl.blocks.RedstoneTorch;
+import com.tree_bit.com.rcdl.blocks.RedstoneTorch.Type;
 import com.tree_bit.com.rcdl.blocks.Wool;
 import com.tree_bit.com.rcdl.core.Tuple3;
 import com.tree_bit.com.rcdl.datatypes.Bit;
@@ -19,8 +19,8 @@ public class CircuitFactory {
 
 		HashMap<Tuple3, Blocks> blocks = new HashMap<>();
 		blocks.put(new Tuple3(0, 0, 0), new Wool(Wool.WoolColor.Orange));
-		blocks.put(new Tuple3(0, 0, 1), new RedStoneTorch(TorchType.RedstoneTorchOn,
-				RedStoneTorch.TorchDataValues.FacingSouth));
+		blocks.put(new Tuple3(0, 0, 1), new RedstoneTorch(Type.On,
+				RedstoneTorch.Orientation.FacingSouth));
 
 		return new Circuit(new Tuple3(1, 1, 2), io, blocks);
 	}
