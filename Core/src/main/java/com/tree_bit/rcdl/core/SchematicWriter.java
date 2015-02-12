@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.tree_bit.rcdl.blocks.Blocks;
 import com.tree_bit.rcdl.circuits.Circuit;
+import com.tree_bit.rcdl.schematic.SchematicWrapper;
 
 public class SchematicWriter {
 
