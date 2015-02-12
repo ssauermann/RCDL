@@ -1,12 +1,12 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.rcdl.core;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.tree_bit.com.rcdl.blocks.Blocks;
-import com.tree_bit.com.rcdl.circuits.Circuit;
+import com.tree_bit.rcdl.blocks.Blocks;
+import com.tree_bit.rcdl.circuits.Circuit;
 
 public class SchematicWriter {
 

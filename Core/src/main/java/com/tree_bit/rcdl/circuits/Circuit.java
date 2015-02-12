@@ -1,11 +1,11 @@
-package com.tree_bit.com.rcdl.circuits;
+package com.tree_bit.rcdl.circuits;
 
 import java.util.HashMap;
 import java.util.List;
 
-import com.tree_bit.com.rcdl.blocks.Blocks;
-import com.tree_bit.com.rcdl.core.Tuple3;
-import com.tree_bit.com.rcdl.datatypes.Datatype.EKind;
+import com.tree_bit.rcdl.blocks.Blocks;
+import com.tree_bit.rcdl.core.Tuple3;
+import com.tree_bit.rcdl.datatypes.Datatype.EKind;
 
 /**
  * A circuit contains a list of its in- and outputs as well as

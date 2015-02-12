@@ -1,9 +1,9 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.rcdl.core;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tree_bit.com.rcdl.core.Graph.Direction;
+import com.tree_bit.rcdl.core.Graph.Direction;
 
 public class GraphVertex<T> {
 

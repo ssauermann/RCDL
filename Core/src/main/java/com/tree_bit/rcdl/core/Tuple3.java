@@ -1,4 +1,4 @@
-package com.tree_bit.com.rcdl.core;
+package com.tree_bit.rcdl.core;
 
 /**
  * 3 dimensional tuple/vector.

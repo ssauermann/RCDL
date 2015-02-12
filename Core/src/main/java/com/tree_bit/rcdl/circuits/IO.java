@@ -1,7 +1,7 @@
-package com.tree_bit.com.rcdl.circuits;
+package com.tree_bit.rcdl.circuits;
 
-import com.tree_bit.com.rcdl.core.Tuple3;
-import com.tree_bit.com.rcdl.datatypes.Datatype;
+import com.tree_bit.rcdl.core.Tuple3;
+import com.tree_bit.rcdl.datatypes.Datatype;
 
 /**
  * Manages a in- or output.

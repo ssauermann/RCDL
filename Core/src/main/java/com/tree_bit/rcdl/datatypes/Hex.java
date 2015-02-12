@@ -1,4 +1,4 @@
-package com.tree_bit.com.rcdl.datatypes;
+package com.tree_bit.rcdl.datatypes;
 
 /**
  * Hexadecimal data type.
