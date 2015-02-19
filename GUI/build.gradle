@@ -6,6 +6,8 @@ apply plugin: 'eclipse'
 // Default tasks
 defaultTasks 'check', 'build'
 
+compileJava.options.encoding = 'UTF-8'
+
 // Basic project information
 group = 'com.tree_bit'
 archivesBaseName = 'rcdl-gui'
@@ -20,6 +22,7 @@ repositories {
 }
 
 dependencies {
+	checkstyle('com.puppycrawl.tools:checkstyle:5.7')
 	compile project(':Core')
 	compile group: 'com.google.guava', name: 'guava', version: '12.0'
 }

@@ -10,6 +10,8 @@ defaultTasks 'build'
 apply plugin: 'java'
 apply plugin: 'checkstyle'
 
+compileJava.options.encoding = 'UTF-8'
+
 //Info
 group = 'com.tree_bit'
 archivesBaseName = 'rcdl'
@@ -27,6 +29,7 @@ repositories {
 }
 
 dependencies {
+	checkstyle('com.puppycrawl.tools:checkstyle:5.7')
 	compile project('BlockAPI')
 	compile project('Core')
 	compile project('GUI')

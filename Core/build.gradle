@@ -6,6 +6,8 @@ apply plugin: 'eclipse'
 // Default tasks
 defaultTasks 'check', 'build'
 
+compileJava.options.encoding = 'UTF-8'
+
 // Basic project information
 group = 'com.tree_bit'
 archivesBaseName = 'rcdl-core'
@@ -20,6 +22,7 @@ repositories {
 }
 
 dependencies {
+	checkstyle('com.puppycrawl.tools:checkstyle:5.7')
 	compile fileTree(dir: 'libs', include: '*.jar')
 	compile project(':BlockAPI')
 	compile group: 'com.google.guava', name: 'guava', version: '12.0'
