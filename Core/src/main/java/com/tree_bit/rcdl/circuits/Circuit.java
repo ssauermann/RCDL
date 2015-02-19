@@ -1,6 +1,6 @@
 package com.tree_bit.rcdl.circuits;
 
-import com.tree_bit.rcdl.blocks.Blocks;
+import com.tree_bit.rcdl.blocks.Block;
 import com.tree_bit.rcdl.core.Tuple3;
 import com.tree_bit.rcdl.datatypes.Datatype.EKind;
 
@@ -47,7 +47,7 @@ public class Circuit {
      * </ul>
      * </p>
      */
-    private final HashMap<Tuple3, Blocks> blocks;
+    private final HashMap<Tuple3, Block> blocks;
 
     /**
      * Creates a new circuit.
@@ -56,7 +56,7 @@ public class Circuit {
      * @param io <b>List&lt;IO&gt;</b> list with in- and outputs
      * @param blocks <b>HashMap&lt;Tuple3, Blocks&gt;</b> blocks
      */
-    public Circuit(Tuple3 size, List<IO> io, HashMap<Tuple3, Blocks> blocks) {
+    public Circuit(final Tuple3 size, final List<IO> io, final HashMap<Tuple3, Block> blocks) {
         this.size = size;
         this.io = io;
         this.blocks = blocks;
@@ -98,7 +98,7 @@ public class Circuit {
         return inputs;
     }
 
-    public void rotate(int degree) {
+    public void rotate(final int degree) {
         if ((degree % 90) != 0) {
             throw new IllegalArgumentException("Rotation is only allowed for multiples of 90 degree.");
             // TODO: Rotation
@@ -128,7 +128,7 @@ public class Circuit {
      *
      * @return <b>HashMap&lt;Tuple3, Blocks&gt;</b> blocks
      */
-    public HashMap<Tuple3, Blocks> getBlocks() {
+    public HashMap<Tuple3, Block> getBlocks() {
         return this.blocks;
     }
 
