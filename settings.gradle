@@ -1,2 +1,2 @@
-rootProject.name = theName
+rootProject.name = 'RCDL'
 include "BlockAPI", "Core", "GUI"
