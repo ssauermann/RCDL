@@ -65,8 +65,8 @@ codeCoverageReport.dependsOn {
 }
 
 tasks.coveralls {
-dependsOn 'codeCoverageReport'
-onlyIf { isCI }
+dependsOn codeCoverageReport
+onlyIf { System.env.'CI' }
 }
 
 
