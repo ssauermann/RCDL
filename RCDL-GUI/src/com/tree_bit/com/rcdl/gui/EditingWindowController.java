@@ -7,10 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 public class EditingWindowController {
 	@FXML
 	private Tab tab1;
+
+	@FXML
+	private BorderPane tabContainer;
 
 	private MainApp mainApp;
 
@@ -19,10 +23,10 @@ public class EditingWindowController {
 
 	@FXML
 	public void initialize() {
-		tab1.setContent(showEditableTextFiled());
+		tab1.setContent(showEditableTextField());
 	}
 
-	private Node showEditableTextFiled() {
+	private Node showEditableTextField() {
 		AnchorPane editableTextField;
 		try
 		{
@@ -31,7 +35,9 @@ public class EditingWindowController {
 			loader.setLocation(MainApp.class.getResource("EditableTextField.fxml"));
 			editableTextField = (AnchorPane) loader.load();
 
-			tab1.setContent(editableTextField);
+			// tab1.setContent(editableTextField);
+			tabContainer.setCenter(editableTextField);
+
 			return editableTextField;
 
 		}
