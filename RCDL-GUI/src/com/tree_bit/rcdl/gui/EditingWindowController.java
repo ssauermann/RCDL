@@ -1,4 +1,4 @@
-package com.tree_bit.com.rcdl.gui;
+package com.tree_bit.rcdl.gui;
 
 import java.io.IOException;
 
