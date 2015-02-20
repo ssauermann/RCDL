@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tree_bit.com.rcdl.gui.EditingWindowController">
+   <children>
+      <SplitPane dividerPositions="0.13536776212832552" layoutX="60.0" layoutY="220.0" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="718.0" prefWidth="565.0" SplitPane.resizableWithParent="false" />
+          <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <TabPane fx:id="tPane" layoutX="91.0" minHeight="0.0" minWidth="0.0" tabClosingPolicy="ALL_TABS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab fx:id="tab1" text="Untitled Tab 1">
+                           <content>
+                              <BorderPane fx:id="tabContainer" />
+                           </content></Tab>
+                      <Tab text="Untitled Tab 2" />
+                        <Tab text="Untitled Tab" />
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
