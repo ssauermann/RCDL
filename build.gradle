@@ -1,5 +1,4 @@
 //Subprojects
-evaluationDependsOn('BlockAPI')
 evaluationDependsOn('Core')
 evaluationDependsOn('GUI')
 
@@ -79,7 +78,6 @@ jacocoTestReport {
 
 dependencies {
 	checkstyle('com.puppycrawl.tools:checkstyle:5.7')
-	compile project('BlockAPI')
 	compile project('Core')
 	compile project('GUI')
 	compile group: 'com.google.guava', name: 'guava', version: '12.0'
@@ -89,7 +87,7 @@ dependencies {
 }
 
 checkstyle {
-	configFile = project('BlockAPI').file('checkstyle.xml')
+	configFile = project('Core').file('checkstyle.xml')
 }
 
 

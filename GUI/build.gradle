@@ -42,5 +42,5 @@ dependencies {
 }
 
 checkstyle {
-	configFile = project(':BlockAPI').file('checkstyle.xml')
+	configFile = project(':Core').file('checkstyle.xml')
 }
